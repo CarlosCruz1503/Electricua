@@ -1,0 +1,7 @@
+
+…kotlin:S6615$";Remove this variable, which is assigned but never accessed.(êŒùøÿÿÿÿ8†˜Áô‹2J$ae2cd8d0-9d81-460a-a56f-2f292339d118
+pkotlin:S6615%"&The value assigned here is never used.(‰²„ùÿÿÿÿ8†˜Áô‹2J$61d6e44a-22b1-4ec0-9bf9-f04c750e48b5
+hkotlin:S125"Remove this commented out code.(×Ã‚ôúÿÿÿÿ8—Í©ÄŒ2J$b04dfb4e-efbe-4608-a274-8f759b8f5c02
+‚kotlin:S1481"8Remove this unused "appBarConfiguration" local variable.(Ç¹¸õÿÿÿÿÿ8˜Í©ÄŒ2J$cdf21adc-71a5-4cd1-824d-87c1435eed79
+_kotlin:S1128"Remove this unused import.(âåÅó8˜Í©ÄŒ2J$cdcee288-2bfa-4fe1-8200-06c80a0ed8a9
+_kotlin:S1128"Remove this unused import.(³¨î©8‹˜Áô‹2J$427a44e8-d2d8-4ba9-a5cb-af3c96e8c632
