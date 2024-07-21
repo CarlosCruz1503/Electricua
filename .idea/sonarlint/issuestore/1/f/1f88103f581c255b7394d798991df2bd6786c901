@@ -1,14 +1,18 @@
 
-dkotlin:S6615-" Remove this useless initializer.(Ïd8Ü’ˆ…ˆ2J$6add71fb-365d-48a9-927e-ac9af4816747
-ekotlin:S6615," Remove this useless initializer.(¿úÃÇ8‘© …ˆ2J$dcd27f20-0d4f-42f4-a9e5-7ed2773ae471
-jkotlin:S6615+" Remove this useless initializer.(ùç·–üÿÿÿÿ8ËëÀÆŒ2J$2ecc5900-d2b5-4da5-97ae-d7edda9ecf13
-ekotlin:S6615*" Remove this useless initializer.(üø•¢8ÃûÀÆŒ2J$b0fe69ba-e416-4ae9-a926-09894ee99941
+€kotlin:S6615/";Remove this variable, which is assigned but never accessed.(ìÙÔõ8ÀÁ³¶2J$95960678-58d4-405c-a25e-a7a36b40fc78
+jkotlin:S6615." Remove this useless initializer.(ñ‡úÙÿÿÿÿÿ8ÀÁ³¶2J$12308663-d9b3-4ca3-8295-6fef83cbed8c
+dkotlin:S6615-" Remove this useless initializer.(Ïd8ÀÁ³¶2J$3f03ba3c-e10b-4925-a126-df62dddb49b3
+ekotlin:S6615," Remove this useless initializer.(¿úÃÇ8ÀÁ³¶2J$5c2eb1da-2c1d-49e1-bd04-b9e9dcbace12
+jkotlin:S6615+" Remove this useless initializer.(ùç·–üÿÿÿÿ8µïÌ¶2J$2b606239-7d0b-4899-8f6c-8f3dd1a3aaf9
+ekotlin:S6615*" Remove this useless initializer.(üø•¢8€¥Í¶2J$89be3a20-1def-47f5-9215-fd45637aacbd
+kkotlin:S6615G"&The value assigned here is never used.(éØÉ€8˜ìÎ¶2J$29e54ff5-86e3-460e-bebc-f41f9914f159
+ckotlin:S125P"Remove this commented out code.(›‘’ü8›ìÎ¶2J$13226df7-9e86-4c13-aab4-8b9655436fe4
 _kotlin:S1128
-"Remove this unused import.(Úôş8Á¾ôË‹2J$2b3b9713-067e-4efe-9676-d8e250ac9554
-dkotlin:S1128"Remove this unused import.(µ®›¬şÿÿÿÿ8ã’ˆ…ˆ2J$6b0f0bed-45c5-46f5-b7a6-c242419bac3a
-dkotlin:S1128"Remove this unused import.(ï§Å¡üÿÿÿÿ8Ö®ê2J$de167301-b3e3-4072-9e73-57b6b03f9470
-_kotlin:S1128"Remove this unused import.(–‡†Í8Ö®ê2J$84ad2040-ed3e-44f1-b4bb-0234e52cb570
->kotlin:S1128"Remove this unused import.(µŸûàúÿÿÿÿ8ß»âµ2
-8kotlin:S1128"Remove this unused import.(”üÜK8ß»âµ2
->kotlin:S1128"Remove this unused import.(£³öêùÿÿÿÿ8ß»âµ2
-kotlin:S1192."ÂDefine a constant instead of duplicating this literal "https://www.google.com/url?sa=i&url=https%3A%2F%2Fas.com%2Fdiarioas%2F2021%2F11%2F07%2Factualidad%2F1636286127_006870.html&psig=AOvVaw37Lmd4UXyBmdAUunbNilU6&ust=1719864480259000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDKws2QhIcDFQAAAAAdAAAAABAD" 4 times.(ÑÈÀÀûÿÿÿÿ8µÓ²ÆŒ2J$be47d768-cf3c-4624-b824-055d6f8477f7
+"Remove this unused import.(Úôş8ÆÁ³¶2J$9e28a0ce-15f9-4b13-8315-311d7c5def34
+dkotlin:S1128"Remove this unused import.(µ®›¬şÿÿÿÿ8ÉÁ³¶2J$e1935e2d-26b0-4338-8c10-4fc31509a87f
+dkotlin:S1128"Remove this unused import.(ï§Å¡üÿÿÿÿ8ÊÁ³¶2J$cd4996c1-86b1-4c72-a491-05bb9b3face7
+_kotlin:S1128"Remove this unused import.(–‡†Í8ÊÁ³¶2J$093d1b45-ecbb-49f6-bc64-8cad11f75e9f
+>kotlin:S1128"Remove this unused import.(µŸûàúÿÿÿÿ8ùìÄ·2
+8kotlin:S1128"Remove this unused import.(”üÜK8ùìÄ·2
+>kotlin:S1128"Remove this unused import.(£³öêùÿÿÿÿ8ùìÄ·2
+kotlin:S11924"ÂDefine a constant instead of duplicating this literal "https://www.google.com/url?sa=i&url=https%3A%2F%2Fas.com%2Fdiarioas%2F2021%2F11%2F07%2Factualidad%2F1636286127_006870.html&psig=AOvVaw37Lmd4UXyBmdAUunbNilU6&ust=1719864480259000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDKws2QhIcDFQAAAAAdAAAAABAD" 6 times.(ù±±ÿÿÿÿÿ8ÊÁ³¶2J$5d69d185-815a-454e-b4a9-bd1c58b0ce44

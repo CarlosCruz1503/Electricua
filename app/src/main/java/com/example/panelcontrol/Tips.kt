@@ -50,10 +50,10 @@ class Tips : Fragment() {
 //        val packageName = this.packageName
         // Asignar el valor del prompt al TextView
 
-        val textView = root.findViewById<TextView>(R.id.textView10)
+//        val textView = root.findViewById<TextView>(R.id.textView10)
 //        val imageView = root.findViewById<ImageView>(R.id.imageView8)
         titleView.text = text
-        textView.text = descripcion
+//        textView.text = descripcion
         val tableRow: TableRow = root.findViewById(R.id.tableRow)
 
         tableRow.isClickable = true;
