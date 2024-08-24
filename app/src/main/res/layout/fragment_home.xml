@@ -4,46 +4,72 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+
     tools:context=".ui.dashboard.DashboardFragment">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_centerInParent="true"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
+
+        android:layout_marginTop="30dp"
+        android:gravity="center|top"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
-
             android:layout_height="wrap_content"
-            android:text="Cuantos kHm gastas mensualmente?"
+            android:hint="Regirstrar nueva actividad de plantación"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/floors"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:ems="13"
+            android:inputType="text"
+            android:hint="Cantidad plantas sembradas ?" />
+
+        <EditText
+            android:id="@+id/month"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="text"
-            android:text="kHm al mes"
+            android:hint="Mes de plantación"
             tools:layout_editor_absoluteY="19dp" />
+
+        <EditText
+            android:id="@+id/cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Costo de cada planta"  />
+
+        <EditText
+            android:id="@+id/zone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="Zona de plantación" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Consultar"
+            android:text="Registrar"
             tools:layout_editor_absoluteY="64dp" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/note"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:gravity="center"
+
             android:textSize="20sp"
             tools:layout_editor_absoluteY="112dp" />
     </LinearLayout>

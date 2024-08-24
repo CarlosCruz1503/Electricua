@@ -11,25 +11,27 @@
         android:layout_height="match_parent"
         android:layout_centerInParent="true"
         android:layout_centerHorizontal="true"
+        android:layout_margin="6dp"
         android:gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
-
+            android:layout_margin="8dp"
             android:layout_height="wrap_content"
             android:text="Importancia de cuidar la energía"
             android:textSize="24sp" />
 
         <TextView
             android:id="@+id/textView4"
-            android:layout_width="wrap_content"
+            android:layout_width="2dp"
             android:layout_height="wrap_content"
+            android:layout_margin="8dp"
             android:gravity="center"
             android:scrollbarSize="8dp"
             android:shadowDy="20"
-            android:text="Al ahorrar energía contribuimos a interrumpir un ciclo de contaminación del medioambiente que ocurre de la siguiente manera: al usar menos energía usamos menos combustibles que generan dicha energía, al utilizar menos combustible, disminuye la emisión de gases a la atmósfera, al haber menos gases, se contamina menos."
+            android:text=""
             android:textSize="20sp"
             tools:layout_editor_absoluteY="112dp" />
     </LinearLayout>

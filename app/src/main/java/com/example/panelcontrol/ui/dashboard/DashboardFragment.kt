@@ -7,18 +7,20 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import android.widget.TableRow
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.add
-import androidx.fragment.app.commit
+import com.example.panelcontrol.Modelos.Plantation
 import com.example.panelcontrol.R
 import com.example.panelcontrol.Tips
-import com.example.panelcontrol.Tips.Companion.DESC_BUNDLE
-import com.example.panelcontrol.Tips.Companion.FOTO_BUNDLE
-import com.example.panelcontrol.Tips.Companion.TEXT_BUNDLE
+import com.example.panelcontrol.ui.Table
 import com.example.panelcontrol.databinding.FragmentDashboardBinding
-
+import java.io.File
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException
+import android.util.Log
+import android.widget.TableLayout
+import android.widget.TableRow
+import android.widget.TextView
 
 class DashboardFragment : Fragment() {
 
@@ -37,62 +39,66 @@ class DashboardFragment : Fragment() {
 
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-        var arrayOfTips = ArrayList<Map<String, Any>>()
-        var tip1 : Map<String, Any> = mapOf()
-        var tip2 : Map<String, Any> = mapOf()
-        var tip3 : Map<String, Any> = mapOf()
-        var tip4 : Map<String, Any> = mapOf()
-        var tip5 : Map<String, Any> = mapOf()
-        var tip6 : Map<String, Any> = mapOf()
-        tip1 = mutableMapOf("Title" to "Bombillas, mejor LED", "Text" to "Las bombillas led tienen una vida útil de entre 20.000 y 50.000 horas. Mientras que, las bombillas tradicionales unas 2.000 horas por lo que son cambiadas con menor frecuencia lo cual se traduce en ahorro económico y energético. No emiten rayos ultravioleta ni rayos infrarrojos, y apenas producen pérdida de calor. No contaminan pues no contienen mercurio ni tungsteno y además son reciclables.\n" +
-                "\n" +
-                "Esto representa otro aspecto a mediano plazo, ya que el mantenimiento de estas bombillas led es mínimo. Aunque es probable que el precio inicial del proyecto de iluminación sea más alto que en la iluminación tradicional, a largo plazo, el beneficio es inminente y para el medio ambiente lo es aún más. Existen infinidad de diseños de luces led, apliques de pared, focos led, lámparas de techo y demás aplicaciones led, para crear todo tipo de ambientes. Pueden aplicarse en la iluminación de cualquier espacio bien sea interior o exterior y además con los estilos de preferencia.\n" +
-                "\n"
-               , "Image" to "https://www.google.com/url?sa=i&url=https%3A%2F%2Fas.com%2Fdiarioas%2F2021%2F11%2F07%2Factualidad%2F1636286127_006870.html&psig=AOvVaw37Lmd4UXyBmdAUunbNilU6&ust=1719864480259000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDKws2QhIcDFQAAAAAdAAAAABAD")
-        tip2 = mutableMapOf("Title" to "Cuidado con que dejas prendido", "Text" to "Sitios web especializados en tecnología como CNET y TechRadar sugieren esta práctica como una forma efectiva de reducir el consumo de energía. Según sus análisis, desconectar la nevera durante períodos de ausencia prolongada puede disminuir significativamente el gasto energético.\n" +
-                "\n" +
-                "Un estudio reciente realizado por el Instituto de Investigación en Energía de la Universidad Nacional Autónoma de México respalda esta idea. Encontró que desconectar la nevera durante ocho horas al día, puede reducir el consumo de energía en un 20%. Esto se traduce en un ahorro notable en la factura eléctrica a lo largo del tiempo.\n" +
-                "\n" +
-                "Cómo afecta esta práctica a la conservación de los alimentos en el refrigerador\n" +
-                "Contrariamente a lo que se podría pensar, los expertos aseguran que desconectar la nevera durante cortos períodos de tiempo no afecta significativamente la calidad ni la frescura de los alimentos almacenados.", "Image" to "https://www.google.com/url?sa=i&url=https%3A%2F%2Fas.com%2Fdiarioas%2F2021%2F11%2F07%2Factualidad%2F1636286127_006870.html&psig=AOvVaw37Lmd4UXyBmdAUunbNilU6&ust=1719864480259000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDKws2QhIcDFQAAAAAdAAAAABAD")
-        tip3 = mutableMapOf("Title" to "Tu refri", "Text" to "Antes de comenzar a explicar el nuevo etiquetado energético europeo, es fundamental que comprendamos qué es y por qué es tan importante para nuestro hogar escoger los electrodomésticos, en este caso neveras, más eficientes. \n" +
-                "\n" +
-                "\n" +
-                "Atendiendo a la información publicada por la Organización de Consumidores y Usuarios (OCU) sobre las nuevas etiquetas de eficiencia energética: desde marzo de 2021 entra en vigor una nueva calificación energética más simple para electrodomésticos como lavadoras, lavasecadoras, frigoríficos o todo tipo de pantallas. En 2022 se incorporaron a este nuevo etiquetado aires acondicionados y también las secadoras. \n" +
-                "\n" +
-                "\n" +
-                "Las etiquetas energéticas son pegatinas o adhesivos que te indican la clasificación energética del electrodoméstico según una escala de consumo. Estas etiquetas aportan una información fundamental a los consumidores, ya que gracias a ellas podemos conocer cuáles son los modelos que menos energía consumen y por tanto, son más eficientes energéticamente. ", "Image" to "https://www.google.com/url?sa=i&url=https%3A%2F%2Fas.com%2Fdiarioas%2F2021%2F11%2F07%2Factualidad%2F1636286127_006870.html&psig=AOvVaw37Lmd4UXyBmdAUunbNilU6&ust=1719864480259000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDKws2QhIcDFQAAAAAdAAAAABAD")
-        tip4 = mutableMapOf("Title" to "No queremos fugas", "Text" to "La electricidad es una parte esencial de nuestras vidas modernas. Sin embargo, el manejo de la electricidad requiere cuidado y precaución. Una fuga de energía eléctrica puede ser peligrosa, causar daños a los aparatos eléctricos o incluso provocar un incendio. Por lo tanto, es importante que todos aprendamos a identificar una fuga de energía eléctrica. \n" +
-                "Uno de los signos más obvios de una fuga de energía eléctrica es un chispazo o arco eléctrico. Otros signos incluyen un sonido sibilante o zumbido, un calentamiento anormal de los enchufes o interruptores, o un fuerte olor a quemado. Si experimenta cualquiera de estos síntomas, desconecte inmediatamente los aparatos eléctricos de la toma de corriente y llame a un Electricista profesional para revisar los circuitos. ", "Image" to "https://www.google.com/url?sa=i&url=https%3A%2F%2Fas.com%2Fdiarioas%2F2021%2F11%2F07%2Factualidad%2F1636286127_006870.html&psig=AOvVaw37Lmd4UXyBmdAUunbNilU6&ust=1719864480259000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDKws2QhIcDFQAAAAAdAAAAABAD")
-        tip5 = mutableMapOf("Title" to "Revisa las luces", "Text" to "En Brasil, quienes tienen un poco más de edad recuerdan la irónica pregunta que se ha convertido en un refrán en los hogares del país: \"¿Eres miembro de Light?\" Esta referencia a la compañía eléctrica se hacía a quienes olvidaban apagar las luces. Expresiones similares se repiten en toda América Latina.\n" +
-                "\n" +
-                "Esta sencilla frase contiene uno de los consejos de oro para ahorrar energía en casa: apagar las luces al salir de la habitación. ", "Image" to "https://www.google.com/url?sa=i&url=https%3A%2F%2Fas.com%2Fdiarioas%2F2021%2F11%2F07%2Factualidad%2F1636286127_006870.html&psig=AOvVaw37Lmd4UXyBmdAUunbNilU6&ust=1719864480259000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDKws2QhIcDFQAAAAAdAAAAABAD")
-        tip6 = mutableMapOf("Title" to "Realizar duchas más rápidas ", "Text" to "Cuanto menos tiempo esté encendida una ducha eléctrica, menos energía consume. Para ahorrar energía, lo ideal son las duchas más rápidas y menos calientes. \n" +
-                "\n" +
-                "Otra posibilidad es instalar un sistema de calentamiento del agua mediante luz solar. Según el Atlas de la EPE, el uso de la energía solar en este aspecto, además de poder reducir el gasto total con energía, también ayuda a la reducción de las emisiones de gases de efecto invernadero por ser una fuente de energía limpia.  ", "Image" to "https://www.google.com/url?sa=i&url=https%3A%2F%2Fas.com%2Fdiarioas%2F2021%2F11%2F07%2Factualidad%2F1636286127_006870.html&psig=AOvVaw37Lmd4UXyBmdAUunbNilU6&ust=1719864480259000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCLDKws2QhIcDFQAAAAAdAAAAABAD")
-        arrayOfTips.add(tip1)
-
-        arrayOfTips.add(tip2)
-        arrayOfTips.add(tip3)
-        arrayOfTips.add(tip4)
-        arrayOfTips.add(tip5)
-//        arrayOfTips.add(tip6)
-        val fragments = childFragmentManager.fragments
-        if (fragments.isNotEmpty()) {
-            val fragmentTransaction = childFragmentManager.beginTransaction()
-            for (fragment in fragments) {
-                fragmentTransaction.remove(fragment)
-            }
-            fragmentTransaction.commit()
-        }
+        val textFile: File = File(requireContext().filesDir, "plantation.txt")
+        val listaAgua: kotlin.collections.List<Plantation> = leerArchivo(textFile)
+        val arbolesPorZone = treesByZone(listaAgua)
+        val costoPromedio = averageCost(listaAgua)
+        val arbolesPorMes = treesByMonth(listaAgua)
+        val arbolesPromedio = averageFloors(listaAgua)
+        Log.d("DashboardFragment", "Esta es la lista: $listaAgua")
+        Log.d("DashboardFragment", "arboles por mes: $arbolesPorMes")
+        Log.d("DashboardFragment", "arboles por zona: $arbolesPorZone")
+        Log.d("DashboardFragment", "Este es el promedio de costo: $costoPromedio")
+        Log.d("DashboardFragment", "Este es el total de arboles: $arbolesPromedio")
         val containerLayout: LinearLayout = root.findViewById(R.id.fragment_container)
-        arrayOfTips.forEach { tip ->
-            val title = tip["Title"] as String
-            val text = tip["Text"] as String
-            val image = tip["Image"] as String
+        val linearLayoutP: LinearLayout = root.findViewById(R.id.linearLayoutP)
+//        val containerLayoutTable: LinearLayout = root.findViewById(R.id.fragment_container_table)
+//        val fragment2 = Table.newInstance("aaa","xxxx")
+//        childFragmentManager.beginTransaction()
+//            .add(containerLayoutTable.id, fragment2)
+//            .commit()
+        val tableLayout = root.findViewById<TableLayout>(R.id.tableLayout)
+        val tableLayoutZone = root.findViewById<TableLayout>(R.id.tableLayoutZone)
 
-            val fragment = Tips.newInstance(image, title, text )
+        addTableRow(tableLayout, "Mes", "Arboles Plantados", isHeader = true)
+        addTableRow(tableLayoutZone, "Zona", "Arboles Plantados", isHeader = true)
+
+        // Adding data rows
+        arbolesPorMes.forEach { (city, treesPlanted) ->
+            addTableRow(tableLayout, city, treesPlanted.toString())
+        }
+
+        arbolesPorZone.forEach { (city, treesPlanted) ->
+            addTableRow(tableLayoutZone, city, treesPlanted.toString())
+        }
+        val text1 = TextView(context).apply {
+            text = "Este es el promedio de costo: $costoPromedio"
+            setPadding(10, 10, 10, 10)
+            setBackgroundResource(R.color.white)
+
+        }
+
+        val text2 = TextView(context).apply {
+            text = "Este es el total de arboles: $arbolesPromedio"
+            setPadding(10, 10, 10, 10)
+            setBackgroundResource(R.color.white)
+
+        }
+
+        linearLayoutP.addView(text1)
+        linearLayoutP.addView(text2)
+        linearLayoutP.requestLayout()
+
+
+
+        listaAgua.forEach { tip ->
+            Log.d("DashboardFragment","Elemento: ${tip.month}")
+            val month = tip.month as String
+            val zone = tip.zone as String
+            val cost = tip.cost.toString()
+            val floors = tip.floors.toString()
+
+            val fragment = Tips.newInstance(cost, month, zone, floors )
             childFragmentManager.beginTransaction()
                 .add(containerLayout.id, fragment)
                 .commit()
@@ -101,8 +107,89 @@ class DashboardFragment : Fragment() {
         return root
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
+    private fun leerArchivo(archivo: File): List<Plantation> {
+        val listaPlantation = mutableListOf<Plantation>()
+
+        try {
+            BufferedReader(FileReader(archivo)).use { br ->
+                var linea: String?
+                while (br.readLine().also { linea = it } != null) {
+                    val datos = linea!!.split(",")
+                    val cost = datos[0].toFloat()
+                    val month = datos[1].toString()
+                    val zone = datos[2]
+                    val floors = datos[3].toInt()
+                    val plantation = Plantation(cost, month, zone, floors)
+                    listaPlantation.add(plantation)
+                }
+            }
+        } catch (e: IOException) {
+            e.printStackTrace()
+        }
+
+        return listaPlantation
+    }
+    private fun treesByMonth(data: List<Plantation>): Map<String, Int> {
+        val monthlyTrees = mutableMapOf<String, Int>()
+        data.forEach { entry ->
+            val month = entry.month
+            val floors = entry.floors
+            monthlyTrees[month] = monthlyTrees.getOrDefault(month, 0) + floors
+        }
+        return monthlyTrees
+    }
+
+    private fun treesByZone(data: List<Plantation>): Map<String, Int> {
+        val zoneTrees = mutableMapOf<String, Int>()
+        data.forEach { entry ->
+            val zone = entry.zone
+            val floors = entry.floors
+            zoneTrees[zone] = zoneTrees.getOrDefault(zone, 0) + floors
+        }
+        return zoneTrees
+    }
+
+    private fun averageCost(data: List<Plantation>): Double {
+        val totalCost = data.sumOf { it.cost.toDouble() } // Convert Float to Double
+        return if (data.isNotEmpty()) totalCost / data.size else 0.0
+    }
+
+    private fun averageFloors(data: List<Plantation>): Double {
+        val totalFloors = data.sumOf { it.floors.toDouble() } // Convert Int to Double
+        return if (data.isNotEmpty()) totalFloors else 0.0
+    }
+
+    private fun addTableRow(tableLayout: TableLayout, cell1Text: String, cell2Text: String, isHeader: Boolean = false) {
+        val row = TableRow(context)
+        val cell1 = TextView(context).apply {
+            text = cell1Text
+            setPadding(10, 10, 10, 10)
+            setBackgroundResource(R.color.white)
+            if (isHeader) {
+                setTypeface(null, android.graphics.Typeface.BOLD)
+            }
+        }
+
+        val cell2 = TextView(context).apply {
+            text = cell2Text
+            setPadding(10, 10, 10, 10)
+            setBackgroundResource(R.color.white)
+            if (isHeader) {
+                setTypeface(null, android.graphics.Typeface.BOLD)
+            }
+        }
+
+        row.addView(cell1)
+        row.addView(cell2)
+        tableLayout.addView(row)
+    }
+
+
+
+
 }

@@ -7,7 +7,13 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.example.panelcontrol.R
 import com.example.panelcontrol.databinding.FragmentNotificationsBinding
+import kotlin.random.Random
+data class ConsejoReforestacion(
+    val titulo: String,
+    val descripcion: String
+)
 
 class NotificationsFragment : Fragment() {
 
@@ -27,11 +33,33 @@ class NotificationsFragment : Fragment() {
 
         _binding = FragmentNotificationsBinding.inflate(inflater, container, false)
         val root: View = binding.root
-
-//        val textView: TextView = binding.textNotifications
-//        notificationsViewModel.text.observe(viewLifecycleOwner) {
-//            textView.text = it
-//        }
+        val titleNotification = root.findViewById<TextView>(R.id.textView3)
+        val textNotification = root.findViewById<TextView>(R.id.textView4)
+        val consejosReforestacion = arrayOf(
+            ConsejoReforestacion(
+                titulo = "Selecciona Especies Nativas",
+                descripcion = "Planta árboles que sean nativos de la región para asegurar que prosperen en el clima y suelo local."
+            ),
+            ConsejoReforestacion(
+                titulo = "Promueve la Biodiversidad",
+                descripcion = "Planta una variedad de especies de árboles para crear un ecosistema diverso que apoye a la vida silvestre y sea resistente a enfermedades."
+            ),
+            ConsejoReforestacion(
+                titulo = "Involucra a la Comunidad",
+                descripcion = "Organiza eventos y actividades de plantación de árboles con la participación de la comunidad para fomentar un sentido de responsabilidad y compromiso."
+            ),
+            ConsejoReforestacion(
+                titulo = "Cuida el Suelo",
+                descripcion = "Asegúrate de preparar adecuadamente el suelo antes de plantar, y considera la implementación de técnicas de conservación del suelo para mantener su fertilidad."
+            ),
+            ConsejoReforestacion(
+                titulo = "Monitorea y Mantén",
+                descripcion = "Realiza seguimientos periódicos y ofrece cuidados continuos a los árboles plantados, como riego y control de plagas."
+            )
+        )
+        val numeroAleatorio = Random.nextInt(consejosReforestacion.size)
+        titleNotification.text = consejosReforestacion[numeroAleatorio].titulo
+        textNotification.text = consejosReforestacion[numeroAleatorio].descripcion
         return root
     }
 

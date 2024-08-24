@@ -25,21 +25,33 @@
 
             <LinearLayout
                 android:layout_width="282dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="281dp"
-                    android:layout_height="52dp"
-                    android:text="TextView"
-                    android:textSize="24sp" />
-
-                <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/monthT"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="TextView" />
+                    android:text="TextView"
+                    android:textSize="24sp"/>
+                <TextView
+                    android:id="@+id/zoneT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textSize="24sp"/>
+                <TextView
+                    android:id="@+id/floorsT"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textSize="24sp"/>
+                <TextView
+                    android:id="@+id/costT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="TextView"
+                    android:textSize="24sp" />
             </LinearLayout>
 
         </TableRow>
